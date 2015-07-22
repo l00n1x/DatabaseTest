@@ -19,6 +19,24 @@
             android:text="Read Database"
             android:id="@+id/read_DB_button">
         </Button>
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:text="Create Database (Threaded)"
+            android:id="@+id/create_DB_button_threaded">
+        </Button>
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:text="Read Database (Threaded)"
+            android:id="@+id/read_DB_button_threaded">
+        </Button>
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:text="Delete Table"
+            android:id="@+id/delete_table">
+        </Button>
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
