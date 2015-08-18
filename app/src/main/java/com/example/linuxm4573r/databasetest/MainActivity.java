@@ -8,12 +8,16 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 //Build 7_21_15
 //Created by James Seelbach
@@ -43,6 +47,12 @@ public class MainActivity extends Activity {
         //Create instantiation of the DBAdaper.  This is how we'll do our
         //Work with the database we're using in this app.
         myDB = new DBAdapter(getApplicationContext());
+
+        //TimerTask for recording metrics.  Runs every 10 seconds.
+        Log.d("DatabaseTestApp",new String("MAIN THREAD PID="+Integer.toString(android.os.Process.myPid())));
+        TimerTask timerTask = new ANRMetricsRecorder(android.os.Process.myPid());
+        Timer timer = new Timer(true);
+        timer.scheduleAtFixedRate(timerTask, 0, 10*1000);
 
 
         //Find buttons and attach to correct OnClickListeners
