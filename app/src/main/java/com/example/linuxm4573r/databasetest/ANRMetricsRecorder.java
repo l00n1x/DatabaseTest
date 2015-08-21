@@ -114,7 +114,7 @@ public class ANRMetricsRecorder extends TimerTask {
     private int getNumberFromIOLine(String line)
     {
         int spaceLocation = line.indexOf(' ');
-        String number=line.substring(spaceLocation + 1, line.length() - 1);
+        String number=line.substring(spaceLocation + 1);
         return Integer.parseInt(number);
     }
 
@@ -170,7 +170,8 @@ public class ANRMetricsRecorder extends TimerTask {
      */
     private BufferedReader getIOProcFile()
     {
-        StringBuilder path=new StringBuilder("/proc//io");
+        StringBuilder path=new StringBuilder("/proc//task//io");
+        path.insert(12, String.valueOf(mainThreadPID));
         path.insert(6, String.valueOf(mainThreadPID));
         BufferedReader myFile=null;
         try {

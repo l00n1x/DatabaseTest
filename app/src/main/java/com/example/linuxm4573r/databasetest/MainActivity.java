@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import java.util.Random;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -38,11 +39,17 @@ public class MainActivity extends Activity {
     ImageView myImageView3;
     ImageView myImageView4;
     DBAdapter myDB;
+    NameList myNameList;
+    Random myRand;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        myRand = new Random();
+
+        myNameList = new NameList();
 
         //Create instantiation of the DBAdaper.  This is how we'll do our
         //Work with the database we're using in this app.
@@ -124,8 +131,8 @@ public void writeToDatabase()
 
     // Create a new map of values, where column names are the keys
     ContentValues values = new ContentValues();
-    values.put("key","keyname");
-    values.put("value","valuename");
+    values.put("NAME",myNameList.getRandomName());
+    values.put("ID",myRand.nextDouble());
 
     //Add rows to the table specified by DatabaseEntry.java
     //We'll need to remove the for loop and instead find ways
@@ -139,8 +146,8 @@ public void writeToDatabase()
 
         //This is just staging the next key,value pair for
         //the next iteration of the for loop.
-        values.put("key","keyname");
-        values.put("value","valuename"+i);
+        values.put("NAME",myNameList.getRandomName());
+        values.put("ID",myRand.nextDouble());
     }
     //We NEED to close the database.
     //I'll look into what happens if this statement doesn't happen.

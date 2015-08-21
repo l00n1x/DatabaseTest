@@ -4,7 +4,6 @@ package com.example.linuxm4573r.databasetest;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.provider.BaseColumns;
 
 /**
  * Created by James Seelbach on 7/17/2015.
@@ -23,7 +22,7 @@ public class DBAdapter extends SQLiteOpenHelper {
     //This is the string that will be passed to the SQL engine itself.
     //This will create a table with parameters set in DatabaseEntry.java
     private static final String SQL_CREATE_ENTRIES =
-            "CREATE TABLE " + DatabaseEntry.TABLE_NAME + "(key "+DatabaseEntry.KEY_TYPE+", value "+DatabaseEntry.VALUE_TYPE+
+            "CREATE TABLE " + DatabaseEntry.TABLE_NAME + "(Name "+DatabaseEntry.NAME+", Phone_Number "+DatabaseEntry.ID+", Salary "+DatabaseEntry.SALARY+" default "+DatabaseEntry.DEFAULT_SALARY+
             ")";
 
     //This is the string that will be passed to the SQL engine itself.

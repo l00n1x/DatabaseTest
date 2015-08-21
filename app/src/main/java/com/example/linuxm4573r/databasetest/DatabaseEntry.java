@@ -11,6 +11,8 @@ import android.provider.BaseColumns;
 
 public abstract class DatabaseEntry implements BaseColumns {
     public static final String TABLE_NAME = "settings";
-    public static final String KEY_TYPE = "TEXT";
-    public static final String VALUE_TYPE = "TEXT";
+    public static final String NAME = "TEXT";
+    public static final String ID = "DOUBLE";
+    public static final String SALARY = "INTEGER";
+    public static final String DEFAULT_SALARY="50000";
 }
